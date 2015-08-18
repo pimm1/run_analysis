@@ -1,10 +1,10 @@
 #
 ### 1. Merging data
-# we put every file in our working directory
-#x_train.txt
-#x_test.txt
-#features.txt
-#we read and merge files, using the all = true
+ we put every file in our working directory
+x_train.txt
+x_test.txt
+features.txt
+we read and merge files, using the all = true
 #x_test<-read.table("X_Test.txt")
 #x_train<-read.table("X_Train.txt")
 #x_features<-read.table("features.txt")
