@@ -1,3 +1,4 @@
+#
 # 1. Merging ddata
 # we put every file in our working directory
 #x_train.txt
@@ -60,8 +61,9 @@ data<-gsub("[Bb]ody[Bb]ody","body",data)
 data<-gsub("[Ff]req","frecuency",data)
 # renaming the columns with new vector
 names(x_meanstd)<-data
+x_result2<-summarise(group_by(x_meanstd,"Activity","Subjects"),mean(round(as.numeric(as.character(tBodyAceleration.mean...X)),6)))
 
-# 5 last data_set
+# 5 last_tidy data_set
 # we copy files with subjects in the working directory.
 # subject_test
 # subject_train
@@ -72,7 +74,11 @@ subject_total<-rbind(subject_test,subject_train)
 names(subject_total)[1]<-"Subjects"
 x_meanstd[88]<-subject_total
 library(dplyr)
-falta sacar medias!!!!
-
+# to get medias the best is to use summarise_each
+# we group by selected activities
+by_group <- x_meanstd %>% group_by(Activity,Subjects)
+res_fin<- by_group %>% summarise_each(funs(mean))
+write.table(res_fin,"Resfin.txt",row.name=FALSE)
+#The tidy data set is Resfin.txt
 
 
