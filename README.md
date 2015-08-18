@@ -1,5 +1,5 @@
 #
-## 1. Merging data
+### 1. Merging data
 # we put every file in our working directory
 #x_train.txt
 #x_test.txt
